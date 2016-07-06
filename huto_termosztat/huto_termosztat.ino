@@ -20,7 +20,7 @@ void loop()
 		elozo_millis = mostani_millis;
 	    temperature = readTemp();
 	    Serial.print(temperature);
-	    Serial.println(" �C");
+	    Serial.println(" °C");
 	    Serial.print("Futasido: ");
 	    Serial.println(millis() / 1000.0);
 	    Serial.println("-------------");
