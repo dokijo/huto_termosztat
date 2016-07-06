@@ -10,7 +10,7 @@
  D:\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino/USBAPI.h \
  D:\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino/Arduino.h \
  D:\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\variants\mega/pins_arduino.h \
- ../huto_termosztat.ino
+ ../huto_termosztat.h ../huto_termosztat.ino
 
 D:\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino/Arduino.h:
 
@@ -33,5 +33,7 @@ D:\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\ardui
 D:\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\cores\arduino/Arduino.h:
 
 D:\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.11\variants\mega/pins_arduino.h:
+
+../huto_termosztat.h:
 
 ../huto_termosztat.ino:

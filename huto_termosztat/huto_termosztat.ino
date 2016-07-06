@@ -1,26 +1,14 @@
 #include "Arduino.h"
-
-#define LM35pin 0
-#define LM35ref 1
-
-unsigned long elozo_millis = 0;					/**< A legutóbbi iterálsánál rögzített időérték milliszekundumban. */
-unsigned long kompresszor_esemeny_millis = 0;	/**< A legutóbbi kompresszoresemény (indítás vagy leállás) ideje milliszekundumban.  */
-const unsigned long egyperc = 60000.0;			/**< 1 perc (60000 milliszekundum). */
-const unsigned long idokoz = 1000.0;			/**< 1 másodperc időköz, a főciklusban időzítésre használjuk. */
-
-const int _RELE_PIN = 13;						/**< A kompresszort kapcsoló relét meghajtó pin a boardon. */
-
-const float celhomerseklet = 4.0;				/**< Ezt a hőmérsékletet akarjuk tartani a hűtőben. */
-const float homerseklet_epszilon = 1.5; 		/**< A hiszterézis deltája --> így 2,5-5,5°C a tartomány. */
-float temperature = 0.0;						/**< Aktuális hőmérséklet. */
-
-bool kompresszor = false;						/**< A kompresszor állapota. */
-
+#include "huto_termosztat.h"
 
 void setup(){
+	elozo_millis = 0;
+	kompresszor_esemeny_millis = 0;
+	temperature = 0.0;
+	kompresszor = false;
+
 	Serial.begin(9600);
 	pinMode(_RELE_PIN, OUTPUT);
-	//digitalWrite(_RELE_PIN, HIGH);
 }
 
 // The loop function is called in an endless loop
