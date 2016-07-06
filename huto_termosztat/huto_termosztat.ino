@@ -6,7 +6,7 @@
 unsigned long elozo_millis = 0;					/**< A legutóbbi iterálsánál rögzített időérték milliszekundumban. */
 unsigned long kompresszor_esemeny_millis = 0;	/**< A legutóbbi kompresszoresemény (indítás vagy leállás) ideje milliszekundumban.  */
 const unsigned long egyperc = 60000.0;			/**< 1 perc (60000 milliszekundum). */
-const unsigned long idokoz = 1000.0; 			/**< 1 másodperc időköz, a főciklusban időzítésre használjuk. */
+const unsigned long idokoz = 1000.0;			/**< 1 másodperc időköz, a főciklusban időzítésre használjuk. */
 
 const int _RELE_PIN = 13;						/**< A kompresszort kapcsoló relét meghajtó pin a boardon. */
 
