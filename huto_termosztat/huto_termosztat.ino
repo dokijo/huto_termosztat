@@ -20,19 +20,19 @@ void loop()
 		elozo_millis = mostani_millis;
 	    temperature = readTemp();
 	    Serial.print(temperature);
-	    Serial.println(" Â°C");
+	    Serial.println(" °C");
 	    Serial.print("Futasido: ");
 	    Serial.println(millis() / 1000.0);
 	    Serial.println("-------------");
 
-	    if (mostani_millis - kompresszor_esemeny_millis >= egyperc) {		// Ha a legutÃ³bbi kompresszoresemÃ©ny Ã³ta eltelt legalÃ¡bb 1 perc
-			if (kompresszor == true) {										// Ha Ã©ppen megy a kompresszor
-				if (temperature <= celhomerseklet - homerseklet_epszilon) { // Ã©s mÃ¡r elÃ©g hideg van
-					kompresszor_ki();										// akkor kikapcsoljuk a hÅ±tÃ©st
+	    if (mostani_millis - kompresszor_esemeny_millis >= egyperc) {		// Ha a legutóbbi kompresszoresemény óta eltelt legalább 1 perc
+			if (kompresszor == true) {										// Ha éppen megy a kompresszor
+				if (temperature <= celhomerseklet - homerseklet_epszilon) { // és már elég hideg van
+					kompresszor_ki();										// akkor kikapcsoljuk a hûtést
 				}
 			} else {														// Ha nem megy a kompresszor
-				if (temperature >= celhomerseklet + homerseklet_epszilon) { // Ã©s tÃºl meleg van
-					kompresszor_be();										// akkor elindÃ­tjuk a hÅ±tÃ©st
+				if (temperature >= celhomerseklet + homerseklet_epszilon) { // és túl meleg van
+					kompresszor_be();										// akkor elindítjuk a hûtést
 				}
 			}
 	    }
