@@ -7,13 +7,13 @@
 #include "Arduino.h"
 #include "Arduino.h"
 #include "huto_termosztat.h"
-void setup();
+/*void setup();
 void loop() ;
 float readTemp() ;
 void kompresszor_be() ;
 void kompresszor_ki() ;
 void uj_ertek_tombbe(float temp, float *tomb) ;
-float tombatlag(float *tomb) ;
+float tombatlag(float *tomb) ;*/
 
 #include "huto_termosztat.ino"
 
