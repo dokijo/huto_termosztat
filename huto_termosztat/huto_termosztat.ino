@@ -7,6 +7,9 @@ void setup(){
 	temperature = 0.0;
 	kompresszor = false;
 
+	for (int i = 0; i < 10; i++)
+		homerseklet_tomb[i] = 0.0;
+
 	Serial.begin(9600);
 	pinMode(_RELE_PIN, OUTPUT);
 }
@@ -19,10 +22,14 @@ void loop()
 	if (mostani_millis - elozo_millis >= idokoz) {
 		elozo_millis = mostani_millis;
 	    temperature = readTemp();
+	    uj_ertek_tombbe(temperature, homerseklet_tomb);
 	    Serial.print(temperature);
 	    Serial.println(" °C");
 	    Serial.print("Futasido: ");
 	    Serial.println(millis() / 1000.0);
+	    Serial.print("Tömb átlaga: ");
+	    Serial.print(tombatlag(homerseklet_tomb));
+	    Serial.println(" °C");
 	    Serial.println("-------------");
 
 	    if (mostani_millis - kompresszor_esemeny_millis >= egyperc) {		// Ha a legutóbbi kompresszoresemény óta eltelt legalább 1 perc
@@ -63,3 +70,16 @@ void kompresszor_ki() {
   kompresszor_esemeny_millis = millis();
 }
 
+void uj_ertek_tombbe(float temp, float *tomb) {
+	for (int i = 1; i < 10; i++) {
+		tomb[i] = tomb[i - 1];
+	}
+	tomb[0] = temp;
+}
+
+float tombatlag(float *tomb) {
+	float temp = 0;
+	for (int i = 0; i < 10; i++)
+		temp += tomb[i];
+	return temp / 10.0;
+}
