@@ -23,6 +23,7 @@ const float celhomerseklet = 4.0;			/**< Ezt a hõmérsékletet akarjuk tartani a h
 const float homerseklet_epszilon = 1.5; 	/**< A hiszterézis deltája --> így 2,5-5,5°C a tartomány. */
 float temperature;							/**< Aktuális hõmérséklet. */
 float homerseklet_tomb[10];					/**< A legutóbbi 10 mérés eredményét tároló tömb. */
+float atlaghomerseklet;
 
 bool kompresszor;							/**< A kompresszor állapota. */
 

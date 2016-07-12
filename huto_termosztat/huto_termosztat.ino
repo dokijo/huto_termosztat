@@ -23,22 +23,23 @@ void loop()
 		elozo_millis = mostani_millis;
 	    temperature = readTemp();
 	    uj_ertek_tombbe(temperature, homerseklet_tomb);
+	    atlaghomerseklet = tombatlag(homerseklet_tomb);
 	    Serial.print(temperature);
 	    Serial.println(" °C");
 	    Serial.print("Futasido: ");
 	    Serial.println(millis() / 1000.0);
 	    Serial.print("Tömb átlaga: ");
-	    Serial.print(tombatlag(homerseklet_tomb));
+	    Serial.print(atlaghomerseklet);
 	    Serial.println(" °C");
 	    Serial.println("-------------");
 
 	    if (mostani_millis - kompresszor_esemeny_millis >= egyperc) {		// Ha a legutóbbi kompresszoresemény óta eltelt legalább 1 perc
 			if (kompresszor == true) {										// Ha éppen megy a kompresszor
-				if (temperature <= celhomerseklet - homerseklet_epszilon) { // és már elég hideg van
+				if (atlaghomerseklet <= celhomerseklet - homerseklet_epszilon) { // és már elég hideg van
 					kompresszor_ki();										// akkor kikapcsoljuk a hûtést
 				}
 			} else {														// Ha nem megy a kompresszor
-				if (temperature >= celhomerseklet + homerseklet_epszilon) { // és túl meleg van
+				if (atlaghomerseklet >= celhomerseklet + homerseklet_epszilon) { // és túl meleg van
 					kompresszor_be();										// akkor elindítjuk a hûtést
 				}
 			}
