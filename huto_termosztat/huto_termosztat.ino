@@ -44,10 +44,7 @@ void loop()
 				}
 			}
 	    }
-
 	}
-
-
 }
 
 float readTemp() {
