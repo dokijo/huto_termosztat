@@ -58,12 +58,14 @@ float readTemp() {
 
 void kompresszor_be() {
   digitalWrite(13, HIGH);
+  digitalWrite(2, HIGH);
   kompresszor = true;
   kompresszor_esemeny_millis = millis();
 }
 
 void kompresszor_ki() {
   digitalWrite(13, LOW);
+  digitalWrite(2, LOW);
   kompresszor = false;
   kompresszor_esemeny_millis = millis();
 }
